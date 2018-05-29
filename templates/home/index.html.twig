@@ -1,0 +1,19 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block body %}
+    <div class="navbar">
+        <div class="navbar-left">
+            {% if app.user %}
+                <a href="{{ path('security_logout') }}">Déconnexion</a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('admin') }}">Admin</a>
+                {% endif %}
+            {% else %}
+                <a href="{{ path('security_login') }}"> Connexion</a>
+                <a href="{{ path('user_registration') }}"> Inscription</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+{% endblock %}

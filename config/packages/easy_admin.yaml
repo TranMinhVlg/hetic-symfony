@@ -1,5 +1,12 @@
 easy_admin:
     entities:
-        # List the entity class name you want to manage
-        - App\Entity\User
-
+           User:
+            class: App\Entity\User
+           Expense:
+            class: App\Entity\Expense
+           Category:
+            class: App\Entity\Category
+            list:
+              fields:
+                - { property : 'id'}
+                - { property : 'content'}

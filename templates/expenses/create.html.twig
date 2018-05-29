@@ -1,0 +1,19 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block body %}
+    <h1>Ajouter une dépense</h1>
+    {% for message in app.flashes('notice') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="well">
+        {{ form_start(form) }}
+        {{ form_row(form.amount) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.categoryId) }}
+        {{ form_row(form.createdAt) }}
+        <button type="submit">Ajouter</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

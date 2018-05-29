@@ -1,0 +1,29 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block body %}
+    <h1>Bonjour, voici vos dépenses</h1>
+    <a href="{{ path('expenses_new') }}">Ajouter</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">Dépenses : {{ totalExpenses }} €</div>
+            <div class="col-md-3">Plus grosse dépense : {{ highestExpense }} €</div>
+        </div>
+
+        <table border="1">
+            <tr>
+                <td>Somme</td>
+                <td>Date</td>
+                <td>Type</td>
+                <td>Description</td>
+            </tr>
+            {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense.amount }} €</td>
+                    <td>{{ expense.createdAt|date("d/m/Y H:i") }}</td>
+                    <td>{{ expense.categoryId }}</td>
+                    <td>{{ expense.description }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
